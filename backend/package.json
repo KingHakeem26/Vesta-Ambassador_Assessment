@@ -1,6 +1,9 @@
 {
   "name": "vesta-assessment-backend",
   "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
     "cors": "^2.8.5",

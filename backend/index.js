@@ -22,9 +22,7 @@ app.use('/api/settings', settingsRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/sections', sectionsRouter)
 
-if (!process.env.VERCEL) {
-  const PORT = process.env.PORT || 3001
-  app.listen(PORT, () => console.log(`Backend running on port ${PORT}`))
-}
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`))
 
 export default app
