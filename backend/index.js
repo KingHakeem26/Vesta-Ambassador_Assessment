@@ -12,7 +12,7 @@ import sectionsRouter from './routes/sections.js'
 const app = express()
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173'
+  origin: process.env.FRONTEND_URL || true
 }))
 app.use(express.json())
 
@@ -22,7 +22,9 @@ app.use('/api/settings', settingsRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/sections', sectionsRouter)
 
-const PORT = process.env.PORT || 3001
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}`))
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 3001
+  app.listen(PORT, () => console.log(`Backend running on port ${PORT}`))
+}
 
 export default app
